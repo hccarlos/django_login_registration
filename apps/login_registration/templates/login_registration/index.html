@@ -1,0 +1,31 @@
+<h3>Register</h3>
+<form action="/register" method="POST"> {% csrf_token %}
+  <p>First Name:</p>
+  <input type="text" name="first_name">
+  <p>Last Name:</p>
+  <input type="text" name="last_name">
+  <p>Email Address:</p>
+  <input type="text" name="email">
+  <p>Password:</p>
+  <input type="text" name="password">
+  <p>Password Confirmation:</p>
+  <input type="text" name="password_confirmation">
+  <input type="submit" value="Submit">
+</form>
+<hr>
+<h3>Login</h3>
+<form action="/login" method="POST"> {% csrf_token %}
+  <p>Email:</p>
+  <input type="text" name="email">
+  <p>Password:</p>
+  <input type="text" name="password">
+  <input type="submit" value="Submit">
+</form>
+<hr>
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
